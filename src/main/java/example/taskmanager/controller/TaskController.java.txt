@@ -1,0 +1,66 @@
+package com.example.taskmanager.controller;
+
+import com.example.taskmanager.dto.TaskDto;
+import com.example.taskmanager.model.Task;
+import com.example.taskmanager.model.User;
+import com.example.taskmanager.service.TaskService;
+import com.example.taskmanager.service.UserService;
+import com.example.taskmanager.util.JwtUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/tasks")
+public class TaskController {
+
+    @Autowired private TaskService taskService;
+    @Autowired private UserService userService;
+    @Autowired private JwtUtil jwtUtil;
+
+    private User getCurrentUser() {
+        String username = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return userService.findByUsername(username);
+    }
+
+    @GetMapping
+    public List<Task> getTasks() {
+        return taskService.getTasksForUser(getCurrentUser());
+    }
+
+    @PostMapping
+    public Task createTask(@RequestBody TaskDto dto) {
+        Task task = new Task();
+        task.setTitle(dto.getTitle());
+        task.setDescription(dto.getDescription());
+        task.setStatus(dto.getStatus());
+        task.setDueDate(dto.getDueDate());
+        task.setUser(getCurrentUser());
+        return taskService.createTask(task);
+    }
+
+    @PutMapping("/{id}")
+    public Task updateTask(@PathVariable Long id, @RequestBody TaskDto dto) {
+        Task task = taskService.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+        if (!task.getUser().getId().equals(getCurrentUser().getId())) {
+            throw new RuntimeException("Not authorized to update this task");
+        }
+        task.setTitle(dto.getTitle());
+        task.setDescription(dto.getDescription());
+        task.setStatus(dto.getStatus());
+        task.setDueDate(dto.getDueDate());
+        return taskService.updateTask(task);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteTask(@PathVariable Long id) {
+        Task task = taskService.findById(id).orElseThrow(() -> new RuntimeException("Task not found"));
+        if (!task.getUser().getId().equals(getCurrentUser().getId())) {
+            throw new RuntimeException("Not authorized to delete this task");
+        }
+        taskService.deleteTask(id);
+        return "Task deleted successfully";
+    }
+}
