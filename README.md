@@ -1,3 +1,23 @@
+![Java](https://img.shields.io/badge/Java-11-orange?logo=openjdk)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.7-brightgreen?logo=springboot)
+![Maven](https://img.shields.io/badge/Maven-Build-red?logo=apachemaven)
+![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
+# 🧠 Task Manager API
+
+A **Spring Boot-based RESTful Task Management System** that enables users to securely manage tasks — create, update, delete, and track progress — with JWT-based authentication, database persistence, and container-ready architecture.
+
+---
+
+## 🚀 Features
+
+✅ **User Authentication & Authorization**
+- Secure login/register using Spring Security + JWT  
+- Role-based access control for users
+
+
+
 # 🧠 Task Manager API
 
 A **Spring Boot–based RESTful Task Management System** that enables users to securely manage tasks — create, update, delete, and track progress — with JWT-based authentication, database persistence, and container-ready architecture.
@@ -79,3 +99,36 @@ A **Spring Boot–based RESTful Task Management System** that enables users to s
                         │ (Access control, token verify)│
                         └──────────────────────────────┘
 
+## 🧠 API Endpoints Overview
+
+| Method | Endpoint | Description |
+|:--------|:----------|:-------------|
+| POST | `/api/auth/register` | Register a new user |
+| POST | `/api/auth/login` | Authenticate user and return JWT |
+| GET | `/api/tasks` | Get all tasks for the logged-in user |
+| POST | `/api/tasks` | Create a new task |
+| PUT | `/api/tasks/{id}` | Update an existing task |
+| DELETE | `/api/tasks/{id}` | Delete a task |
+
+## ⚙️ Tech Stack
+
+- **Backend:** Java 11, Spring Boot 2.7
+- **Security:** Spring Security, JWT Authentication
+- **Database:** MySQL / H2 (for local testing)
+- **ORM:** Spring Data JPA, Hibernate
+- **Build Tool:** Maven
+- **Containerization:** Docker, Docker Compose
+- **Testing:** JUnit, Spring Boot Test
+
+## 🧪 Sample API Request
+
+**POST** `/api/auth/login`
+```json
+{
+  "username": "hariish",
+  "password": "password123"
+}
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
