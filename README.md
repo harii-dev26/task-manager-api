@@ -93,7 +93,6 @@ A **Spring Boot-based RESTful Task Management System** that enables users to sec
 | DELETE | `/api/tasks/{id}`    | Delete a task                        |
 
 
-
 **POST** `/api/auth/login`
 
 ```json
