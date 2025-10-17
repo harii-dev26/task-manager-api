@@ -81,3 +81,25 @@ A **Spring Boot-based RESTful Task Management System** that enables users to sec
                         │  JWT Auth + Spring Security   │
                         │ (Access control, token verify)│
                         └──────────────────────────────┘
+
+
+| Method | Endpoint             | Description                          |
+| :----- | :------------------- | :----------------------------------- |
+| POST   | `/api/auth/register` | Register a new user                  |
+| POST   | `/api/auth/login`    | Authenticate user and return JWT     |
+| GET    | `/api/tasks`         | Get all tasks for the logged-in user |
+| POST   | `/api/tasks`         | Create a new task                    |
+| PUT    | `/api/tasks/{id}`    | Update an existing task              |
+| DELETE | `/api/tasks/{id}`    | Delete a task                        |
+
+
+
+{
+  "username": "hariish",
+  "password": "password123"
+}
+
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
