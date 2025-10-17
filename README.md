@@ -101,7 +101,3 @@ A **Spring Boot-based RESTful Task Management System** that enables users to sec
   "password": "password123"
 }
 
-
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-}
