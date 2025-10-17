@@ -94,6 +94,9 @@ A **Spring Boot-based RESTful Task Management System** that enables users to sec
 
 
 
+**POST** `/api/auth/login`
+
+```json
 {
   "username": "hariish",
   "password": "password123"
