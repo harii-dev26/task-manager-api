@@ -4,52 +4,38 @@
 ![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-# 🧠 Task Manager API
+# Task Manager API
 
 A **Spring Boot-based RESTful Task Management System** that enables users to securely manage tasks — create, update, delete, and track progress — with JWT-based authentication, database persistence, and container-ready architecture.
 
 ---
 
-## 🚀 Features
+## Features
 
-✅ **User Authentication & Authorization**
-- Secure login/register using Spring Security + JWT  
-- Role-based access control for users
-
-
-
-# 🧠 Task Manager API
-
-A **Spring Boot–based RESTful Task Management System** that enables users to securely manage tasks — create, update, delete, and track progress — with JWT-based authentication, database persistence, and container-ready architecture.
-
----
-
-## 🚀 Features
-
-✅ **User Authentication & Authorization**  
+**User Authentication & Authorization**
 - Secure login/register using Spring Security + JWT  
 - Role-based access control for users  
 
-✅ **Task Management APIs**  
+**Task Management APIs**  
 - Create, update, delete, and list tasks  
 - Each user can manage their own tasks independently  
 
-✅ **Persistence & ORM**  
+**Persistence & ORM**  
 - Data persisted via **Spring Data JPA (Hibernate)**  
 - Currently runs on **H2 in-memory database** (can easily switch to MySQL)  
 
-✅ **Container-Ready**  
+**Container-Ready**  
 - Includes `Dockerfile` and `docker-compose.yml` for one-command deployment  
 - Stateless architecture for cloud scalability  
 
-✅ **Developer Tools**  
+**Developer Tools**  
 - Live H2 console for debugging  
 - In-memory database auto-schema creation  
 - Easily extensible for PostgreSQL or MySQL  
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |:------|:------------|
@@ -64,10 +50,7 @@ A **Spring Boot–based RESTful Task Management System** that enables users to s
 
 ---
 
-## 🏗️ Architecture Overview
-
-
-## 🏗️ Architecture Overview
+## Architecture Overview
 
 ```text
                         ┌──────────────────────────────┐
@@ -98,37 +81,3 @@ A **Spring Boot–based RESTful Task Management System** that enables users to s
                         │  JWT Auth + Spring Security   │
                         │ (Access control, token verify)│
                         └──────────────────────────────┘
-
-## 🧠 API Endpoints Overview
-
-| Method | Endpoint | Description |
-|:--------|:----------|:-------------|
-| POST | `/api/auth/register` | Register a new user |
-| POST | `/api/auth/login` | Authenticate user and return JWT |
-| GET | `/api/tasks` | Get all tasks for the logged-in user |
-| POST | `/api/tasks` | Create a new task |
-| PUT | `/api/tasks/{id}` | Update an existing task |
-| DELETE | `/api/tasks/{id}` | Delete a task |
-
-## ⚙️ Tech Stack
-
-- **Backend:** Java 11, Spring Boot 2.7
-- **Security:** Spring Security, JWT Authentication
-- **Database:** MySQL / H2 (for local testing)
-- **ORM:** Spring Data JPA, Hibernate
-- **Build Tool:** Maven
-- **Containerization:** Docker, Docker Compose
-- **Testing:** JUnit, Spring Boot Test
-
-## 🧪 Sample API Request
-
-**POST** `/api/auth/login`
-```json
-{
-  "username": "hariish",
-  "password": "password123"
-}
-
-{
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-}
