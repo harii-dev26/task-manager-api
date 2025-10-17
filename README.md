@@ -83,6 +83,8 @@ A **Spring Boot-based RESTful Task Management System** that enables users to sec
                         └──────────────────────────────┘
 
 
+**## API Endpoints Overview** 
+
 | Method | Endpoint             | Description                          |
 | :----- | :------------------- | :----------------------------------- |
 | POST   | `/api/auth/register` | Register a new user                  |
@@ -105,3 +107,7 @@ A **Spring Boot-based RESTful Task Management System** that enables users to sec
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }
+
+
+
+
